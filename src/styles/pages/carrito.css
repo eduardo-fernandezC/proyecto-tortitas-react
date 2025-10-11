@@ -1,0 +1,11 @@
+.carrito-card {
+  background-color: var(--color-fondo);
+  border-radius: 15px;
+}
+.carrito-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  border-radius: 15px;
+  background-color: var(--color-fondo);
+}
+

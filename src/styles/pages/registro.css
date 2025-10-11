@@ -1,0 +1,23 @@
+.registro-card {
+  max-width: 400px;
+  background-color: var(--color-fondo);
+  border-radius: 15px;
+}
+
+/* Centrar el formulario en pantalla */
+.registro-page {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente */
+  min-height: 80vh;        /* ocupa la mayor parte del alto */
+}
+
+/* Estilo del formulario */
+.registro-form {
+  background-color: var(--color-fondo);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}

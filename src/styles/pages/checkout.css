@@ -1,0 +1,38 @@
+.checkout-card {
+  border-radius: 20px;
+  background-color: var(--color-fondo);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-card h5 {
+  color: var(--color-principal);
+}
+
+.checkout-card ul {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ----- Confirmación ----- */
+.confirmacion-card {
+  background-color: var(--color-fondo);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ----- Responsivo ----- */
+@media (max-width: 768px) {
+  .carrito-card img {
+    height: 160px;
+  }
+
+  .carrito-form,
+  .checkout-card {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
