@@ -2,6 +2,7 @@ import React from "react";
 import { Title } from "../components/atoms/Title";
 import "../styles/pages/blog.css";
 
+import logoTortitas from "../assets/images/logo.webp";
 import cake from "../assets/images/cake.webp";
 import trufa from "../assets/images/trufa.webp";
 import emoCake from "../assets/images/emoCake.webp";
@@ -46,6 +47,27 @@ export const Blog = () => {
   return (
     <main className="container mt-5 mb-5 blog-page">
       <Title text="Blog de TORTITAS.CL" />
+
+      <section className="blog-post reverse">
+        <div className="blog-image">
+          <img src={logoTortitas} alt="Logo Tortitas.CL" />
+        </div>
+        <div className="blog-content">
+          <h2 className="titulo">¿QUIÉNES SOMOS?</h2>
+          <p className="texto">
+            En <strong>Tortitas.CL</strong> creemos que cada momento especial merece un toque dulce y único. 
+            Somos una pastelería creativa que combina sabor, diseño y alegría en cada una de nuestras preparaciones. 
+            Nuestro eslogan, <strong>“Lo mejor en repostería en Chile”</strong>, refleja nuestro compromiso: 
+            ofrecer tortas que no solo sean deliciosas, sino también inolvidables.
+          </p>
+          <p className="texto">
+            Nos especializamos en tortas bonitas, divertidas y personalizadas, pensadas para cada celebración. 
+            En Tortitas no vendemos solo tortas, vendemos sonrisas, recuerdos y experiencias 
+            que se disfrutan desde el primer bocado.
+          </p>
+        </div>
+      </section>
+
       {posts.map((post, index) => (
         <section
           key={post.id}

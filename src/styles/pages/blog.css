@@ -84,3 +84,24 @@
     font-size: 1.6rem;
   }
 }
+
+.blog-post.reverse {
+  flex-direction: row-reverse;
+}
+
+.blog-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.blog-content {
+  text-align: left;
+  padding: 20px;
+}
+
+.blog-content .titulo {
+  color: var(--color-principal);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
