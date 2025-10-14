@@ -16,14 +16,16 @@ describe("Página Blog", () => {
         expect(title).toBeTruthy();
     });
 
-    it("renderiza los tres posts del blog", () => {
+    it("renderiza las cuatro secciones del blog (incluye '¿QUIÉNES SOMOS?')", () => {
         const posts = screen.getAllByRole("heading", { level: 2 });
-        expect(posts.length).toBe(3);
+        expect(posts.length).toBe(4);
     });
 
-    it("renderiza las imágenes con su texto alternativo", () => {
+    it("renderiza las imágenes con su texto alternativo correcto", () => {
         const images = screen.getAllByRole("img");
-        expect(images.length).toBe(3);
-        expect(images[0].getAttribute("alt")).toContain("Cómo hacemos nuestras tortitas");
+        expect(images.length).toBe(4);
+
+        expect(images[0].getAttribute("alt")).toContain("Logo Tortitas.CL");
+        expect(images[1].getAttribute("alt")).toContain("Cómo hacemos nuestras tortitas");
     });
 });
