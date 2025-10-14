@@ -70,7 +70,6 @@
   transform: scale(1.03);
 }
 
-/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .product-card {
     height: auto;

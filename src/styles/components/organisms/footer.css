@@ -4,7 +4,6 @@
   padding: 40px 0 20px 0;
   text-align: center;
   margin-top: auto;
-  /* Se mantiene al fondo */
   width: 100%;
 }
 
@@ -56,7 +55,6 @@
   margin: 0;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;

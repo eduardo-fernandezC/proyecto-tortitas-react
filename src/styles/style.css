@@ -1,10 +1,8 @@
-/* Base */
 @import './base/variables.css';
 @import './base/global.css';
 @import './base/typhograpy.css';
 @import './base/animations.css';
 
-/* Components */
 @import './components/atoms/button.css';
 @import './components/atoms/input.css';
 @import './components/atoms/title.css';
@@ -19,7 +17,6 @@
 @import './components/organisms/productlist.css';
 @import './components/organisms/productlisttemplate.css';
 
-/* Pages */
 @import './pages/home.css';
 @import './pages/productos.css';
 @import './pages/detalle.css';

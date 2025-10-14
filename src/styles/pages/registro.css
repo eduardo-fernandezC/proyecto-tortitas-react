@@ -4,15 +4,13 @@
   border-radius: 15px;
 }
 
-/* Centrar el formulario en pantalla */
 .registro-page {
   display: flex;
-  justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente */
-  min-height: 80vh;        /* ocupa la mayor parte del alto */
+  justify-content: center; 
+  align-items: center;    
+  min-height: 80vh;        
 }
 
-/* Estilo del formulario */
 .registro-form {
   background-color: var(--color-fondo);
   border-radius: 15px;
