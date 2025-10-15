@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Title } from "../components/atoms/Title";
 import { Button } from "../components/atoms/Button";
 import { FormField } from "../components/molecules/FormField";
@@ -23,10 +22,30 @@ export const Contacto = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.nombre) return notifyError("El nombre es obligatorio.");
-    if (!form.correo) return notifyError("El correo es obligatorio.");
-    if (!form.asunto) return notifyError("El asunto es obligatorio.");
-    if (!form.mensaje) return notifyError("El mensaje es obligatorio.");
+
+    // Validaciones
+    if (!form.nombre.trim()) return notifyError("El nombre es obligatorio.");
+    if (form.nombre.length > 100)
+      return notifyError("El nombre no puede tener más de 100 caracteres.");
+
+    if (!form.correo.trim()) return notifyError("El correo es obligatorio.");
+    if (form.correo.length > 100)
+      return notifyError("El correo no puede tener más de 100 caracteres.");
+    if (
+      !/^[\w.-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/.test(form.correo)
+    )
+      return notifyError(
+        "Solo se aceptan correos @duoc.cl, @profesor.duoc.cl o @gmail.com."
+      );
+
+    if (form.telefono && !/^[0-9]+$/.test(form.telefono))
+      return notifyError("El teléfono solo debe contener números.");
+
+    if (form.asunto.length < 5 || form.asunto.length > 60)
+      return notifyError("El asunto debe tener entre 5 y 60 caracteres.");
+
+    if (form.mensaje.length > 500)
+      return notifyError("El mensaje no puede superar los 500 caracteres.");
 
     notifySuccess("Mensaje enviado correctamente.");
     setEnviado(true);
@@ -37,13 +56,39 @@ export const Contacto = () => {
     <main className="container mt-5 contacto-page">
       <Title text="Contáctanos" />
       {!enviado ? (
-        <form onSubmit={handleSubmit} className="contacto-form mx-auto shadow-sm p-4 rounded">
-          <FormField label="Nombre" name="nombre" value={form.nombre} onChange={handleChange} />
-          <FormField label="Correo electrónico" name="correo" type="email" value={form.correo} onChange={handleChange} />
-          <FormField label="Teléfono (opcional)" name="telefono" value={form.telefono} onChange={handleChange} />
-          <FormField label="Asunto" name="asunto" value={form.asunto} onChange={handleChange} />
+        <form
+          onSubmit={handleSubmit}
+          className="contacto-form mx-auto shadow-sm p-4 rounded"
+        >
+          <FormField
+            label="Nombre"
+            name="nombre"
+            value={form.nombre}
+            onChange={handleChange}
+          />
+          <FormField
+            label="Correo electrónico"
+            name="correo"
+            type="email"
+            value={form.correo}
+            onChange={handleChange}
+          />
+          <FormField
+            label="Teléfono"
+            name="telefono"
+            value={form.telefono}
+            onChange={handleChange}
+          />
+          <FormField
+            label="Asunto"
+            name="asunto"
+            value={form.asunto}
+            onChange={handleChange}
+          />
           <div className="mb-3 text-start">
-            <label htmlFor="mensaje" className="form-label fw-bold">Mensaje</label>
+            <label htmlFor="mensaje" className="form-label fw-bold">
+              Mensaje
+            </label>
             <textarea
               id="mensaje"
               name="mensaje"
@@ -59,8 +104,14 @@ export const Contacto = () => {
       ) : (
         <div className="text-center enviado mt-5">
           <h3>Mensaje enviado</h3>
-          <p>Gracias por contactarte con nosotros, te responderemos pronto.</p>
-          <Button text="Enviar otro mensaje" onClick={() => setEnviado(false)} className="mt-2" />
+          <p>
+            Gracias por contactarte con nosotros, te responderemos pronto.
+          </p>
+          <Button
+            text="Enviar otro mensaje"
+            onClick={() => setEnviado(false)}
+            className="mt-2"
+          />
         </div>
       )}
     </main>

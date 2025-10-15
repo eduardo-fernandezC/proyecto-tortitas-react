@@ -31,7 +31,7 @@ describe("Página Registro", () => {
         const terminosCheckbox = document.querySelector('input[name="terminos"]');
 
         fireEvent.change(nombreInput, { target: { value: "Lucas" } });
-        fireEvent.change(correoInput, { target: { value: "lucas@test.com" } });
+        fireEvent.change(correoInput, { target: { value: "lucas@duoc.cl" } });
         fireEvent.change(passwordInput, { target: { value: "1234" } });
         fireEvent.change(confirmarInput, { target: { value: "0000" } });
         fireEvent.click(terminosCheckbox);
@@ -49,7 +49,7 @@ describe("Página Registro", () => {
         const confirmarInput = document.querySelector('input[name="confirmar"]');
 
         fireEvent.change(nombreInput, { target: { value: "Lucas" } });
-        fireEvent.change(correoInput, { target: { value: "lucas@test.com" } });
+        fireEvent.change(correoInput, { target: { value: "lucas@duoc.cl" } });
         fireEvent.change(passwordInput, { target: { value: "1234" } });
         fireEvent.change(confirmarInput, { target: { value: "1234" } });
         fireEvent.click(screen.getByText("Registrarme"));
@@ -67,7 +67,7 @@ describe("Página Registro", () => {
         const terminosCheckbox = document.querySelector('input[name="terminos"]');
 
         fireEvent.change(nombreInput, { target: { value: "Lucas" } });
-        fireEvent.change(correoInput, { target: { value: "lucas@test.com" } });
+        fireEvent.change(correoInput, { target: { value: "lucas@duoc.cl" } });
         fireEvent.change(passwordInput, { target: { value: "1234" } });
         fireEvent.change(confirmarInput, { target: { value: "1234" } });
         fireEvent.click(terminosCheckbox);
@@ -75,13 +75,13 @@ describe("Página Registro", () => {
 
         const usuarios = JSON.parse(localStorage.getItem("usuarios"));
         expect(usuarios.length).toBe(1);
-        expect(usuarios[0].correo).toBe("lucas@test.com");
+        expect(usuarios[0].correo).toBe("lucas@duoc.cl");
     });
 
     it("no permite registrar un usuario si el correo ya existe", () => {
         const usuarioExistente = {
             nombre: "Lucas",
-            correo: "repetido@test.com",
+            correo: "repetido@duoc.cl",
             password: "1234",
         };
         localStorage.setItem("usuarios", JSON.stringify([usuarioExistente]));
@@ -95,7 +95,7 @@ describe("Página Registro", () => {
         const terminosCheckbox = document.querySelector('input[name="terminos"]');
 
         fireEvent.change(nombreInput, { target: { value: "Otro" } });
-        fireEvent.change(correoInput, { target: { value: "repetido@test.com" } });
+        fireEvent.change(correoInput, { target: { value: "repetido@duoc.cl" } });
         fireEvent.change(passwordInput, { target: { value: "5678" } });
         fireEvent.change(confirmarInput, { target: { value: "5678" } });
         fireEvent.click(terminosCheckbox);

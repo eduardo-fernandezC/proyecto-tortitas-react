@@ -11,14 +11,19 @@ describe("Página Contacto", () => {
         const mensaje = container.querySelector('textarea[name="mensaje"]');
 
         fireEvent.change(nombre, { target: { value: "Lucas" } });
-        fireEvent.change(correo, { target: { value: "lucas@test.com" } });
+        fireEvent.change(correo, { target: { value: "lucas@duoc.cl" } });
         fireEvent.change(telefono, { target: { value: "987654321" } });
-        fireEvent.change(asunto, { target: { value: "Consulta" } });
-        fireEvent.change(mensaje, { target: { value: "Hola, quiero hacer un pedido" } });
+        fireEvent.change(asunto, { target: { value: "Consulta torta" } });
+        fireEvent.change(mensaje, { target: { value: "Hola, quiero hacer un pedido de prueba" } });
     };
 
+    beforeEach(() => {
+        window.notifyError = () => { };
+        window.notifySuccess = () => { };
+    });
+
     it("muestra el título correctamente", () => {
-        const { container } = render(<Contacto />);
+        render(<Contacto />);
         expect(screen.getByText(/contáctanos/i)).toBeTruthy();
     });
 
