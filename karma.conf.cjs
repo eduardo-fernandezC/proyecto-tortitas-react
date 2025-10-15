@@ -16,7 +16,7 @@ module.exports = function (config) {
 
     webpack: {
       mode: "development",
-      context: path.resolve(__dirname, "src"), // establece "src" como raíz base
+      context: path.resolve(__dirname, "src"),
       module: {
         rules: [
           {
@@ -35,16 +35,16 @@ module.exports = function (config) {
           },
           {
             test: /\.(png|jpe?g|gif|webp|svg)$/i,
-            type: "asset/resource", // para imágenes locales en tests
+            type: "asset/resource",
           },
         ],
       },
       resolve: {
         extensions: [".js", ".jsx"],
         alias: {
-          "@": path.resolve(__dirname, "src"), // permite usar "@/pages/..." y "@/Context/..."
+          "@": path.resolve(__dirname, "src"),
         },
-        modules: [path.resolve(__dirname, "src"), "node_modules"], // importa desde "src" directamente
+        modules: [path.resolve(__dirname, "src"), "node_modules"],
       },
     },
 
